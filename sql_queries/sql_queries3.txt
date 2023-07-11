@@ -1,0 +1,41 @@
+**Problem 27: Insert five rows / documents into the **`Rides`** table / collection with data of your choice.
+INSERT INTO Rides (id, driver_id, passenger_id, start_location, end_location, distance, ride_time, fare)
+VALUES
+(1, 101, 201, '123 Main Street, City', '456 Elm Street, Town', 10.5, 30.25, 25.50),
+(2, 102, 202, '789 Oak Avenue, Village', '321 Maple Road, Suburb', 8.2, 25.75, 20.00),
+(3, 103, 203, '555 Pine Lane, City', '888 Oak Street, Town', 5.9, 18.50, 15.75),
+(4, 104, 204, '321 Elm Road, Suburb', '777 Pine Avenue, City', 12.3, 40.00, 30.50),
+(5, 105, 205, '999 Maple Lane, Village', '333 Oak Road, Suburb', 7.6, 22.75, 18.25);
+
+
+**Problem 28: Write a query to fetch all rides, ordered by **`fare`** in descending order.
+SELECT * from rides
+ORDER BY fare DESC
+
+**Problem 29: Write a query to calculate the total **`distance`** and total **`fare`** for all rides.
+SELECT SUM(distance) AS total_distance, SUM(fare) AS total_fare
+FROM Rides;
+
+**Problem 30: Write a query to calculate the average **`ride_time`** of all rides.
+SELECT AVG(ride_time) from rides
+
+**Problem 31: Write a query to fetch all rides whose **`start_location`** or **`end_location`** contains 'Downtown'.
+SELECT * from rides
+WHERE start_location like "%Downtown%" OR end_location like "%Downtown%"
+
+**Problem 32: Write a query to count the number of rides for a given **`driver_id`**.
+SELECT count(*) from rides
+WHERE driver_id=101
+
+**Problem 33: Write a query to update the **`fare`** of the ride with **`id`** 4.
+update rides 
+SET fare=200
+WHERE id=4
+
+**Problem 34: Write a query to calculate the total **`fare`** for each **`driver_id`**.
+SELECT SUM(fare) from rides
+group by driver_id
+
+**Problem 35: Write a query to delete the ride with **`id`** 2.
+DELETE FROM rides
+where id=4

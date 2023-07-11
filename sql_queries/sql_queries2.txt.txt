@@ -1,0 +1,39 @@
+insert into restaurants(id,name,cuisine_type,location,average_rating,delivery_available)
+values
+(1, 'Pizza Palace', 'Italian', '123 Main Street, City', 4.5, true),
+(2, 'Taco Town', 'Mexican', '456 Elm Street, Town', 3.8, true),
+(3, 'Sushi Spot', 'Japanese', '789 Oak Avenue, Village', 4.2, true),
+(4, 'Burger Joint', 'American', '321 Maple Road, Suburb', 4.0, false),
+(5, 'Curry House', 'Indian', '555 Pine Lane, City', 4.7, true);
+
+**Problem 18: Write a query to fetch all restaurants, ordered by **`average_rating`** in descending order.
+SELECT * from restaurants
+order by average_rating desc
+
+**Problem 19: Write a query to fetch all restaurants that offer **`delivery_available`** and have an **`average_rating`** of more than 4.
+SELECT * from restaurants
+WHERE delivery_available=true AND average_rating>4
+
+**Problem 20: Write a query to fetch all restaurants where the **`cuisine_type`** field is not set or is null.
+SELECT * from restaurants
+WHERE cuisine_type=null OR cuisine_type=""
+
+**Problem 21: Write a query to count the number of restaurants that have **`delivery_available`**.
+SELECT count(*) from restaurants
+WHERE delivery_available=true
+
+**Problem 22: Write a query to fetch all restaurants whose **`location`** contains 'New York'.
+SELECT * from restaurants
+WHERE location="New York"
+
+**Problem 23: Write a query to calculate the average **`average_rating`** of all restaurants.
+SELECT AVG(average_rating) from restaurants
+
+**Problem 24: Write a query to fetch the top 5 restaurants when ordered by **`average_rating`** in descending order.
+SELECT * from restaurants
+order by average_rating desc
+LIMIT 5
+
+**Problem 25: Write a query to delete the restaurant with `id` 3.
+DELETE from restaurants
+WHERE id=3
